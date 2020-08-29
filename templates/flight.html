@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Flight Price Prediction</title>
+    
+</head>
+
+<body>
+    <div>
+        <form action="{{ url_for('predict')}}" method="post">
+            <h2>Flight Price Prediction </h2>
+            <table align="center" border="0px">
+            <tr>
+                <td><h4>Departure Time</h4><input id="Departure_Time" name="Departure_Time" type="datetime-local" required="required"></td>
+                <td></td>
+
+                <td><h4>Arrival Time</h4><input id="Arrival_Time" name="Arrival_Time" type="datetime-local" required="required"></td>
+            </tr>
+            <tr>
+            <td><h4>Source</h4><select name="Source" id="Source" required="required">
+                <option value=""> --Select Source-- </option>
+                <option value="Banglore">Banglore</option>
+                <option value="Chennai">Chennai</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="Mumbai">Mumbai</option>
+            	</select></td> <td></td>
+
+                <td><h4>Destination</h4><select name="Destination" id="Destination" required="required">
+                <option value=""> --Select Destination-- </option>
+                <option value="Banglore">Banglore</option>
+                <option value="Cochin">Cochin</option>
+                <option value="Delhi">Delhi</option>
+                <option value="Kolkata">Kolkata</option>
+                <option value="New_Delhi">New Delhi</option>
+            	</select>
+            </td>
+            </tr>
+            <tr>
+                <td><h4>Stops</h4><select name="Stops" id="Stops" required="required">
+                <option value="">--Select no. of stops--</option>
+                <option value="0">Non stop</option>
+                <option value="1">1 stop</option>
+                <option value="2">2 stop</option>
+                <option value="3">3 stop</option>
+                <option value="4">4 stop</option>
+                </select></td><td></td>
+
+                <td><h4>Airlines</h4><select name="Airlines" id="Airlines" required="required">
+                <option value="">--Select Airlines--</option>
+                <option value="Air_Asia">Air Asia</option>
+                <option value="Air_India">Air India</option>
+                <option value="GoAir">GoAir</option>
+                <option value="IndiGo">IndiGo</option>
+                <option value="Jet_Airways">Jet Airways</option>
+                <option value="Jet_Airways_Business">Jet Airways Business</option>
+                <option value="Multiple_carriers">Multiple Carriers</option>
+                <option value="Multiple_carriers_Premium_economy">Multiple Carriers Premium Economy</option>
+                <option value="SpiceJet">SpiceJet</option>
+                <option value="Vistara">Vistara</option>
+                <option value="Vistara_Premium_economy">Vistara Premium Economy</option>
+                </select></td>
+                <td></td>
+            </tr>
+
+            <tr>
+            	<td></td>
+            	<td>
+            	<button id="Submit" type="submit ">Submit</button>
+            	</td>
+            </tr>
+            </table>
+
+         <h2>{{ prediction_text }}</h2> 
+        
+        </form>
+
+        <br>
+        
+    </div>
+
+    <div class="footer">
+    	<p>2020:Vipin Khodade  </p>
+    </div>
+
+    
+</body>
+
+
+<style>
+        body {
+            font-family: Arial;
+            font-size: 20px;
+            line-height: 1.5;
+            background-color: lightslategray;
+            text-align: center;
+            padding: 1px;
+            background-image: url('https://www.ishn.com/ext/resources/900x550/airplane-plane-flight-900.jpg?1583412590');
+            background-repeat: no-repeat; background-size: cover; color: white
+        }
+        
+        
+		input::placeholder {
+			font-size: 15px;
+			color: black;
+		}
+  		
+
+        table{
+              border-collapse: separate;
+              border-spacing: 50px 0 ;
+        }
+        
+        #Departure_Time {
+            border-radius: 5px;
+            height: 25px;
+            font-size: 15px;
+            text-align: center;
+        }
+
+        #Departure_Time:hover {
+            background-color: coral;
+        }
+        
+        #Arrival_Time {
+            border-radius: 5px;
+            height: 25px;
+            font-size: 15px;
+            text-align: center;
+        }
+        
+        #Arrival_Time:hover {
+            background-color: coral;
+        }
+
+        #Source {
+            border-radius: 5px;
+            height: 25px;
+            font-size: 15px;
+            text-align: center;
+        }
+        
+        #Source:hover {
+            background-color: coral;
+        }
+
+        #Destination {
+            border-radius: 5px;
+            height: 25px;
+            font-size: 15px;
+            text-align: center;
+        }
+
+        #Destination:hover {
+            background-color: coral;
+        }
+
+        #Stops {
+            border-radius: 5px;
+            height: 25px;
+            font-size: 15px;
+            text-align: center;
+        }
+
+        #Stops:hover{
+        	background-color: coral;
+        }
+
+        #Airlines {
+            border-radius: 5px;
+            height: 25px;
+            font-size: 15px;
+            text-align: center;
+
+        }
+
+        #Airlines:hover {
+            background-color: coral;
+        }
+
+        h4{
+        	color: black;
+        }
+
+        h2:nth-of-type(2){
+        	color: red;
+        	font-size: 15px;
+        }
+
+        #Submit {
+            width: 120px;
+            height: 43px;
+            text-align: center;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+        
+        #Submit:hover {
+            background-color: darkcyan;
+        }
+
+        .footer{
+            font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+   			position: fixed;
+   			bottom: 0;
+   			width: 150%;
+   			color: black;
+        }
+
+    </style>
+</html>
